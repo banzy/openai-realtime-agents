@@ -1,30 +1,17 @@
 {
   "name": "realtime-examples",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "15.1.4",
-    "openai": "^4.77.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-markdown": "^9.0.3",
-    "uuid": "^11.0.4"
+    "start": "concurrently \"cd frontend && bun start\" \"cd backend && bun start\"",
+    "legacy": "concurrently \"cd frontend && yarn start\" \"cd backend && yarn start\"",
+    "build": "concurrently \"cd frontend && yarn build\"",
+    "build:backend": "cd backend && yarn build",
+    "build:frontend": "cd frontend && yarn build",
+    "format": "prettier --write \"frontend/src/**/*.{js,jsx,ts,tsx}\" \"backend/src/**/*.{js,ts}\""
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.4",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "concurrently": "^9.1.2",
+    "prettier": "^3.4.2"
   }
 }
