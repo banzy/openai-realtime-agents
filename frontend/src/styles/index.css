@@ -1,0 +1,154 @@
+:root {
+  --background: #fafafa;
+  --foreground: #171717;
+  --border-color: #e5e5e5;
+  --primary-color: #2563eb;
+  --error-color: #dc2626;
+  --success-color: #16a34a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --border-color: #262626;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Transcript styles */
+.transcript-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-color);
+}
+
+.transcript-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.message-item {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.message-item.assistant {
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.message-header {
+  font-size: 0.875rem;
+  color: rgba(var(--foreground), 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.input-container {
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.input-container textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Events styles */
+.events-container {
+  width: 300px;
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.events-header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.events-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.event-item {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.event-header {
+  font-size: 0.875rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.event-data {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  white-space: pre-wrap;
+}
+
+/* Bottom toolbar styles */
+.bottom-toolbar {
+  height: 60px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.connect-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  background: var(--primary-color);
+  color: white;
+}
+
+.connect-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.connect-button.connected {
+  background: var(--success-color);
+}
+
+.connect-button.disconnected {
+  background: var(--error-color);
+} 
